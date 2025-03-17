@@ -7,7 +7,7 @@ import { IWeather } from "../model";
  */
 
 export async function getWeather(city: string): Promise<IWeather | null> {
-  const apiKey = "5cae3aaa1038f8b453c45fa1b2c1c19e";
+  const apiKey = "apiKey";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},ru&units=metric&lang=ru&APPID=${apiKey}`;
 
   try {
