@@ -11,12 +11,12 @@ export const ArrowDownSvg: React.FC = () => (
     <g clipPath="url(#clip0_120_18)">
       <path
         d="M11.9998 15L7.75684 10.757L9.17184 9.34302L11.9998 12.172L14.8278 9.34302L16.2428 10.757L11.9998 15Z"
-        fill="inherit"
+        fill="#fff"
       />
     </g>
     <defs>
       <clipPath id="clip0_120_18">
-        <rect width="24" height="24" fill="inherit" />
+        <rect width="24" height="24" fill="#fff" />
       </clipPath>
     </defs>
   </svg>
@@ -176,5 +176,39 @@ export const WindySvg: React.FC = () => (
         <rect width="24" height="24" fill="white" />
       </clipPath>
     </defs>
+  </svg>
+);
+
+export const SearchSvg: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#adb5bd"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+);
+
+export const ClockSvg: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#444e72"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12 6 12 12 16 14"></polyline>
   </svg>
 );

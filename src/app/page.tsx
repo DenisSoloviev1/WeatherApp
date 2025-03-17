@@ -1,55 +1,28 @@
-import Image from "next/image";
+import { ClockSvg } from "@/shared/icon";
 import styles from "./page.module.scss";
-import {
-  ArrowDownSvg,
-  ArrowUpSvg,
-  HumSvg,
-  MarkerSvg,
-  WindySvg,
-} from "../shared/icon";
+import Link from "next/link";
 
 export default function Home() {
+
   return (
     <>
-      <header className={styles.header}>
-        <button className={styles.search}>
-          <MarkerSvg />
-          <span>Краснодар</span>
-          <ArrowDownSvg />
-        </button>
-      </header>
-
       <main className={styles.main}>
-        <div className={styles.banner}>
-          <Image
-            src="/clear-day.png"
-            alt="clear-day"
-            width={150}
-            height={150}
-          />
-        </div>
+        <p>Вас приветствует </p>
+        <h1>WeatherApp</h1>
 
-        <div className={styles.card}>
-          <span className={styles.date}>Сегодня, 16 Марта</span>
-          <div className={styles.temp}>29.</div>
+        <section className={styles.history}>
+          <div className={styles.title}>
+            <ClockSvg />
 
-          <p className={styles.description}>description</p>
-
-          <div className={styles.params}>
-            <div className={styles.parameter}>
-              <WindySvg /> <span>Скорость ветра</span> 10 м/с
-            </div>
-
-            <div className={styles.parameter}>
-              <HumSvg /> <span>Влажность</span> 56 %
-            </div>
+            <h2>История</h2>
           </div>
-        </div>
-
-        <button className={styles.moreButton}>
-          Подробнее <ArrowUpSvg />
-        </button>
+        </section>
       </main>
+      <footer className={styles.footer}>
+        <nav>
+          <Link href={"/about"}>О проекте</Link>
+        </nav>
+      </footer>
     </>
   );
 }
