@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import styles from "./page.module.scss";
 import {
   ArrowDownSvg,
@@ -8,31 +8,23 @@ import {
   MarkerSvg,
   WindySvg,
 } from "@/shared/icon";
-
-interface IWeather {
-  name: string;
-  weather: { description: string; icon: string }[];
-  main: { temp: number; humidity: number };
-  wind: { speed: number };
-}
-
-async function getWeather(city: string): Promise<IWeather | null> {
-  const apiKey = "5cae3aaa1038f8b453c45fa1b2c1c19e";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},ru&units=metric&lang=ru&APPID=${apiKey}`;
-
-  try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) return null;
-    return response.json();
-  } catch {
-    return null;
-  }
-}
+import { getWeather, IWeather } from "@/entities/weather";
+import { getCity } from "@/entities/city";
 
 export default async function City({ params }: { params: { city: string } }) {
-  const weatherData = await getWeather(params.city);
+  const cityName = decodeURIComponent(params.city);
 
-  if (!weatherData) return notFound();
+  const cityData = await getCity(cityName);
+
+  if (!cityData) {
+    return notFound();
+  }
+
+  const weatherData = await getWeather(cityData.lat, cityData.lon);
+
+  if (!weatherData) {
+    return notFound();
+  }
 
   const { name, weather, main, wind } = weatherData;
 
@@ -58,7 +50,7 @@ export default async function City({ params }: { params: { city: string } }) {
 
         <div className={styles.card}>
           <span className={styles.date}>
-            Сегодня,
+            Сегодня,{" "}
             {new Date().toLocaleDateString("ru-RU", {
               day: "numeric",
               month: "long",
@@ -70,7 +62,8 @@ export default async function City({ params }: { params: { city: string } }) {
 
           <div className={styles.params}>
             <div className={styles.parameter}>
-              <WindySvg /> <span>Скорость ветра</span> {Math.round(wind.speed)} м/с
+              <WindySvg /> <span>Скорость ветра</span> {Math.round(wind.speed)}{" "}
+              м/с
             </div>
 
             <div className={styles.parameter}>

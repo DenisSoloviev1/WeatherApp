@@ -1,18 +1,22 @@
+import { API_URLS } from "@/shared/config";
 import { IWeather } from "../model";
+
+const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
 /**
  * Получение данных о погоде.
- * @param city - название города.
+ * @param lat - широта.
+ * @param lon - долгота.
  * @returns Promise с результатом операции.
  */
-
-export async function getWeather(city: string): Promise<IWeather | null> {
-  const apiKey = "5cae3aaa1038f8b453c45fa1b2c1c19e";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},ru&units=metric&lang=ru&APPID=${apiKey}`;
+export async function getWeather(
+  lat: number,
+  lon: number
+): Promise<IWeather | null> {
+  const apiUrl = `${API_URLS.WEATHER}?lat=${lat}&lon=${lon}&units=metric&lang=ru&APPID=${apiKey}`;
 
   try {
     const response = await fetch(apiUrl);
-    if (!response.ok) return null;
     return response.json();
   } catch {
     return null;
