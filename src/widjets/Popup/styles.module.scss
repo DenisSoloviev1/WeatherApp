@@ -1,0 +1,79 @@
+.popupContainer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  min-height: 50%;
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fcfcfc;
+  color: var(--secondary-font);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  &[data-position="top"] {
+    top: 0;
+    border-radius: 0 0 30px 30px;
+    --slide-direction: -100%;
+  }
+
+  &[data-position="bottom"] {
+    bottom: 0;
+    border-radius: 30px 30px 0 0;
+    --slide-direction: 100%;
+  }
+
+  &[data-show="true"] {
+    display: flex;
+    animation-name: slide-in;
+  }
+
+  &[data-show="false"] {
+    display: none;
+    animation-name: slide-out;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--slide-direction));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(var(--slide-direction));
+  }
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    fill: var(--base-font);
+    width: 24px;
+    height: 24px;
+  }
+
+  span {
+    margin-right: 5px;
+    text-shadow: var(--base-shadow);
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

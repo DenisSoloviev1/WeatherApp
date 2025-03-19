@@ -1,15 +1,10 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.scss";
-import {
-  ArrowDownSvg,
-  ArrowUpSvg,
-  HumSvg,
-  MarkerSvg,
-  WindySvg,
-} from "@/shared/icon";
-import { getWeather, IWeather } from "@/entities/weather";
+import { HumSvg, WindySvg } from "@/shared/icon";
+import { getWeather } from "@/entities/weather";
 import { getCity } from "@/entities/city";
+import PopupController from "@/widjets/Popup/searchPopup";
 
 export default async function City({ params }: { params: { city: string } }) {
   const cityName = decodeURIComponent(params.city);
@@ -31,11 +26,7 @@ export default async function City({ params }: { params: { city: string } }) {
   return (
     <>
       <header className={styles.header}>
-        <button className={styles.search}>
-          <MarkerSvg />
-          <span>{name}</span>
-          <ArrowDownSvg />
-        </button>
+        <PopupController city={name}/>
       </header>
 
       <main className={styles.main}>
@@ -72,9 +63,9 @@ export default async function City({ params }: { params: { city: string } }) {
           </div>
         </div>
 
-        <button className={styles.moreButton}>
+        {/* <button className={styles.moreButton}>
           Подробнее <ArrowUpSvg />
-        </button>
+        </button> */}
       </main>
     </>
   );

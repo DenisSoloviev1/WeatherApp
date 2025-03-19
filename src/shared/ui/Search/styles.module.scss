@@ -1,0 +1,56 @@
+.searchContainer {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: inset 2px -3px 6px rgba(0, 0, 0, 0.1);
+
+  @media screen and (min-width: 600px) {
+    width: 400px;
+  }
+}
+
+.searchInput {
+  color: var(--secondary-font);
+  outline: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 16px;
+  appearance: none;
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+  font-size: 20px;
+
+  &:not(:placeholder-shown) {
+    border-radius: 16px 0 0 16px;
+    width: calc(100% - 50px);
+  }
+}
+
+.searchButton {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  font-weight: bold;
+  background-image: linear-gradient(to top right, #4a91ff, #47bfdf);
+  border-radius: 0 16px 16px 0;
+  color: var(--base-font);
+  transition: all 0.1s ease-in-out;
+
+  .searchInput:not(:placeholder-shown) + & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  svg {
+    stroke: var(--base-font);
+    position: relative;
+    top: 3px;
+  }
+}

@@ -19,25 +19,6 @@
   justify-content: center;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  svg {
-    fill: var(--base-font);
-    width: 24px;
-    height: 24px;
-  }
-
-  span {
-    margin-right: 5px;
-    text-shadow: var(--base-shadow);
-    font-size: 16px;
-    font-weight: 700;
-  }
-}
-
 .banner {
   display: flex;
   justify-content: center;
@@ -71,7 +52,7 @@
   line-height: 24px;
   text-shadow: var(--base-shadow);
 
-  &::first-letter{
+  &::first-letter {
     text-transform: uppercase;
   }
 }

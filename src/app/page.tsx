@@ -1,7 +1,7 @@
 import { ClockSvg } from "@/shared/icon";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import Popup from "@/shared/ui/Popup";
+// import Popup from "@/widjets/Popup";
 
 export default function Home() {
   return (
@@ -10,13 +10,13 @@ export default function Home() {
         <p>Вас приветствует </p>
         <h1>WeatherApp</h1>
 
-        <Popup position="bottom">
+        {/* <Popup position="bottom" show>
           <div className={styles.title}>
             <ClockSvg />
 
             <h2>История</h2>
           </div>
-        </Popup>
+        </Popup> */}
       </main>
       <footer className={styles.footer}>
         <nav>
