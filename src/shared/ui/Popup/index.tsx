@@ -9,7 +9,7 @@ interface PopupProps {
   show?: boolean;
 }
 
-export default function Popup({ children, position, show = false }: PopupProps) {
+export function Popup({ children, position, show = false }: PopupProps) {
   return (
     <aside className={styles.popupContainer} data-position={position} data-show={show}>
       {children}

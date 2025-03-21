@@ -4,7 +4,7 @@ import styles from "./page.module.scss";
 import { HumSvg, WindySvg } from "@/shared/icon";
 import { getWeather } from "@/entities/weather";
 import { getCity } from "@/entities/city";
-import PopupController from "@/widjets/Popup/searchPopup";
+import Search from "@/widjets/Search";
 
 export default async function City({ params }: { params: { city: string } }) {
   const cityName = decodeURIComponent(params.city);
@@ -26,7 +26,7 @@ export default async function City({ params }: { params: { city: string } }) {
   return (
     <>
       <header className={styles.header}>
-        <PopupController city={name}/>
+        <Search city={name}/>
       </header>
 
       <main className={styles.main}>

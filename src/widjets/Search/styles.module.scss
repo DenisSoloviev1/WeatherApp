@@ -1,3 +1,33 @@
+.openSearchButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    fill: var(--base-font);
+    width: 24px;
+    height: 24px;
+  }
+
+  span {
+    margin-right: 5px;
+    text-shadow: var(--base-shadow);
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.buttonBack {
+  display: flex;
+  align-items: center;
+}
+
 .searchContainer {
   position: relative;
   width: 100%;
@@ -54,3 +84,4 @@
     top: 3px;
   }
 }
+

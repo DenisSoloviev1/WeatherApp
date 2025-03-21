@@ -32,7 +32,7 @@
   }
 
   &[data-show="false"] {
-    display: none;
+    display: flex;
     animation-name: slide-out;
   }
 }
@@ -56,24 +56,5 @@
   100% {
     opacity: 0;
     transform: translateY(var(--slide-direction));
-  }
-}
-
-.searchButton {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  svg {
-    fill: var(--base-font);
-    width: 24px;
-    height: 24px;
-  }
-
-  span {
-    margin-right: 5px;
-    text-shadow: var(--base-shadow);
-    font-size: 16px;
-    font-weight: 700;
   }
 }
